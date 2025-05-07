@@ -1,14 +1,19 @@
+package ecommerce;
+
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        Sim miaSim = new Sim("3201234567");
+        Cliente cliente = new Cliente("C001", "Luca", "Verdi", "luca@email.com", LocalDate.now());
 
-        miaSim.aggiungiChiamata(3, "3281112222");
-        miaSim.aggiungiChiamata(10, "3273334444");
-        miaSim.aggiungiChiamata(2, "3295556666");
-        miaSim.aggiungiChiamata(7, "3267778888");
-        miaSim.aggiungiChiamata(5, "3219990000");
-        miaSim.aggiungiChiamata(4, "3301122334"); // Questa farà uscire la prima chiamata
+        Articolo a1 = new Articolo("A100", "Mouse Wireless", 25.99, 10);
+        Articolo a2 = new Articolo("A101", "Tastiera Meccanica", 59.90, 5);
 
-        miaSim.stampaDati();
+        Carrello carrello = new Carrello(cliente);
+        carrello.aggiungiArticolo(a1);
+        carrello.aggiungiArticolo(a2);
+
+        carrello.stampaCarrello();
     }
 }
+
